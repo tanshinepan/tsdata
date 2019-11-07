@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "tsdata"
+version = "0.2.1"
+description = ""
+authors = ["Jay Chung <wuceh14678@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+click = "^7.0"
+colorama = "^0.4.1"
+alpha_vantage = "^2.1"
+pandas = "^0.25.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+
+[tool.poetry.scripts]
+tsdata = "tsdata.cli:cli"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
