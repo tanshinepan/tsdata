@@ -1,20 +1,28 @@
 ## tsdata
 
-### Preparation
+Produce json file for [TS website](https://tripe-screen-trading-system.web.app/).
 
-1. Get the API Key from [Alpha Vantage](https://www.alphavantage.co/)
-2. `pip install tsdata`
+![](./snapshots/website.png)
 
+## Getting Started
 
+### Prerequisites
 
-### Scenario
+Get the API Key from [Alpha Vantage](https://www.alphavantage.co/)
 
-Produce the JSON data of Microsoft Corporation (symbol: MSFT) or other symbol for first screen. 
+### Installing
+
+`pip install tsdata`
+
+### Running
+
+Produce the data of Microsoft Corporation (symbol: MSFT) for first screen. 
 
 ```bash
 tsdata produce MSFT --screen 1 --key <API Key>
 ```
 
-Afterwards, you'll get the JSON data.
+Afterwards, you'll get *MSFT_first_screen.json*.
 
-Drop it inside the dotted section of [TS website](https://tripe-screen-trading-system.web.app/) correctly.
+
+
