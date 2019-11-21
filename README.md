@@ -5,7 +5,7 @@ Produce data for [TS website](https://tripe-screen-trading-system.web.app/).
 
 ### Prerequisites
 
-- Get the <API Key> from [Alpha Vantage](https://www.alphavantage.co/)
+- Get the `<API Key>` from [Alpha Vantage](https://www.alphavantage.co/)
 - Install packages from [PyPI](https://pypi.org/).
 
 ### Full example
