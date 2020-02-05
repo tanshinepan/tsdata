@@ -22,6 +22,15 @@ def produce_the_first(ticker, updateProgreeBar):
 	df.to_json(r'{}_first_screen.json'.format(ticker), orient='index')
 	updateProgreeBar()
 
+def calculate_fi(df):
+  # Calculate Force Index
+	volume = df.loc[:, "6. volume"]
+	close = df.loc[:, "4. close"]
+	FI = close.diff(-1).multiply(volume).iloc[::-1]
+
+  # Calculate 2-day EMA of Force Index
+	return FI, FI.ewm(span=2, adjust=False).mean()
+
 def produce_the_second(ticker, updateProgreeBar):
 	daily, daily_meta_data = ts.get_daily_adjusted(symbol=ticker, outputsize='full')
 	daily.index = daily.index.strftime('%Y-%m-%d')
@@ -35,16 +44,11 @@ def produce_the_second(ticker, updateProgreeBar):
 	macd.index = macd.index.strftime('%Y-%m-%d')
 	updateProgreeBar()
 
-  # Calculate Force Index
-	volume = daily.loc[:, "6. volume"]
-	close = daily.loc[:, "4. close"]
-	FI = close.diff().multiply(volume)
-
-  # Calculate 2-day EMA of Force Index
-	FI_2EMA = pd.Series.ewm(FI, span=2).mean()
+	fi, fi_ema = calculate_fi(df=daily)
 
 	price = daily.loc[:, "1. open": "4. close"]
-	df = pd.concat([price, ema, macd, FI.rename("FI"), FI_2EMA.rename("FI_2EMA")], axis=1, join='inner')
+
+	df = pd.concat([price, ema, macd, fi.rename("FI"), fi_ema.rename("FI_2EMA")], axis=1, join='inner')
 	df = df.dropna(how='any')
 
 	df.to_json(r'{}_second_screen.json'.format(ticker), orient='index')

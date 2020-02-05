@@ -1,7 +1,9 @@
-README.rst
 tsdata/__init__.py
 tsdata/cli.py
+tsdata/tsdata.py
 tsdata.egg-info/PKG-INFO
 tsdata.egg-info/SOURCES.txt
 tsdata.egg-info/dependency_links.txt
+tsdata.egg-info/entry_points.txt
+tsdata.egg-info/requires.txt
 tsdata.egg-info/top_level.txt

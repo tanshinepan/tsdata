@@ -1,4 +1,6 @@
 dist/
 *.swp
+.cache/
 __pycache__/
+*.pkl
 

@@ -1,5 +1,7 @@
-from tsdata import __version__
+import tsdata
+import pandas as pd
 
-def test_version():
-    assert __version__ == '0.1.0'
+def test_calculate_fi_ema():
+		daily = pd.read_pickle(r'daily.pkl')
+		fi, fi_ema = tsdata.calculate_fi(df=daily)
 

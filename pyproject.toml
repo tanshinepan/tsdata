@@ -5,11 +5,11 @@ description = ""
 authors = ["Jay Chung <wuceh14678@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.6.4"
 click = "^7.0"
 colorama = "^0.4.1"
 alpha_vantage = "^2.1"
-pandas = "^0.25.3"
+pandas = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
