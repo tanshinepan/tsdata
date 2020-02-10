@@ -10,6 +10,8 @@ click = "^7.0"
 colorama = "^0.4.1"
 alpha_vantage = "^2.1"
 pandas = "^1.0.0"
+boto3 = "^1.11.11"
+numpy = "^1.18.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
