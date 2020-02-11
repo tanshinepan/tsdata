@@ -1,3 +1,5 @@
+README.md
+setup.py
 tsdata/__init__.py
 tsdata/cli.py
 tsdata/tsdata.py
