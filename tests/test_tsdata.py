@@ -23,6 +23,4 @@ def test_calculate_fi_ema(extract_daily):
 
 def test_s3_upload(extract_daily):
     # sample_path = pathlib.PurePath(pathlib.Path(__file__).parent).joinpath('s3_file.json')
-    buf = StringIO()
-    tsdata.upload_fileobj(buf, object_name='s3_sample.json')
 

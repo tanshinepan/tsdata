@@ -5,8 +5,7 @@ import boto3
 from botocore.exceptions import ClientError
 from io import StringIO 
 
-def upload_fileobj(buf, object_name):
-    bucket='triple-screen-data'
+def upload_fileobj(bucket, buf, object_name):
     s3_resource = boto3.resource('s3')
     response = s3_resource.Object(bucket, object_name).put(Body=buf.getvalue())
 
@@ -24,10 +23,11 @@ def cli(ticker, timeseries):
     if timeseries == 'daily':
         daily_df = tsdata.produce_daily(ticker)
         daily_df.to_json(buf, orient='index')
+        upload_fileobj(bucket='ts-daily', buf=buf, object_name='{0}.json'.format(ticker))
     elif timeseries == 'weekly':
         weekly_df = tsdata.produce_weekly(ticker)
         weekly_df.to_json(buf, orient='index')
+        upload_fileobj(bucket='ts-weekly', buf=buf, object_name='{0}.json'.format(ticker))
     else:
         pass
-    upload_fileobj(buf, object_name='{0}_{1}.json'.format(ticker, timeseries))
 
